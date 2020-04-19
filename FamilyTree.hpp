@@ -6,7 +6,8 @@ namespace family {
         public:
             std::string name;
             std::string relation;
-            family::Node *mother, *father;
+            family::Node *mother, *father,*child;
+            int rank;
 
     };
 	
@@ -24,3 +25,4 @@ namespace family {
 	};
 
 }
+
