@@ -7,7 +7,8 @@ namespace family{
     }
 
     Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
-		Node sonNode = recursiveGetAncestorNode(sonName, fatherName);
+		
+	    Node sonNode = recursiveGetAncestorNode(this->root , sonName);
 		Node *father = new Node;
         father->name = fatherName;
 		if(sonNode->relation != "me")
