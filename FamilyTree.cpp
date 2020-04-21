@@ -66,6 +66,21 @@ namespace family{
         }
     }
 
+    void findTemtom(int t, Node temp, std::string out) {
+        if (t > 1) {
+            if (temp.mother != NULL)
+                findTemtom(t - 1, temp = &temp.mother);
+            if (temp.father != NULL)
+                findTemtom(t - 1, temp = &temp.father);
+        }
+        else
+        if (out.compare("grandmother") && (temp.mother != NULL)) {
+            return std::cout << temp.mother->name;
+        } else if (out.compare("grandfather") && (temp.father != NULL)) {
+            return std::cout << temp.mother->father;
+        }
+        throw(std::runtime_error("error"));
+    }
     std::string Tree::find(const std::string relation2Root) {
         int L = relation2Root.length(), i = 0;
         Node temp = this->root;
@@ -74,20 +89,7 @@ namespace family{
             std::vector <std::string> out;
             tokenize(relation2Root, delim, out);
             int r = out.size();
-            if (out[r - 1].compare("grandmother")) {
-                for ( ; i < r; i++) {
-                    temp = &temp.mother;
-                }
-                return temp.name;
-            } else {
-                if (out[r - 1].compare("grandfather")) {
-                    for ( ; i < r; i++) {
-                        temp = &temp.father;
-                    }
-                    return temp.name;
-                }
-                else throw(std::runtime_error("error"));
-            }
+            findTemtom(r, &temp, out[r - 1]);
         } else {
             if (relation2Root.compare("mother"))
                 return this->root.mother->name;
@@ -97,7 +99,7 @@ namespace family{
                 return this->root.mother->mother->name;
             else if (relation2Root.compare("grandfather"))
                 return this->root.father->father->name;
-            else throw(std::runtime_error("error"));
+            else throw (std::runtime_error("error"));
         }
     }
 
@@ -112,13 +114,13 @@ namespace family{
         Node removeNode = recursiveGetAncestorNode(this->root , name);
         if (removeNode->rank==0)
             throw(std::runtime_error("error"));
-        remove(removeNode->father->name);
-        remove(removeNode->mother->name);
-        if(removeNode->child->father->name.compare(name) == 0){
-            removeNode->child->father = NULL;
+        remove(removeNode.father->name);
+        remove(removeNode.mother->name);
+        if(removeNode.child->father->name.compare(name) == 0){
+            removeNode.child->father = NULL;
         }
         else{
-            removeNode->child->mother = NULL;
+            removeNode.child->mother = NULL;
         }
         delete removeNode;
         return *this;
