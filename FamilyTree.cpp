@@ -80,7 +80,6 @@ namespace family{
 			return temp->father->name;
         	}
 	}
-        return;
     }
     std::string Tree::find(const std::string relation2Root) {
         int L = relation2Root.length();
