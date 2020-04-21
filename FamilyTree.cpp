@@ -15,7 +15,7 @@ namespace family{
         father->child = &sonNode;
         &father.rank = sonNode.rank+1;
         &father.name = fatherName;
-        if(&father.rank==1)
+        if(&father->rank==1)
             &father.relation = "father";
         else if(&father.rank==2)
             &father.relation = "grandfather";
