@@ -141,4 +141,13 @@ namespace family{
     	}
 		throw(std::runtime_error("error"));
     }
+	
+	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+	void printInorder( Node* root) { 
+		if (root == NULL) 
+			return;
+		printInorder(Node->father);
+		cout << root->name << "-" << root->relation <<" "; 
+		printInorder(Node->mother); 
+	}
 }
