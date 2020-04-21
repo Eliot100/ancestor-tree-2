@@ -129,7 +129,7 @@ namespace family{
         else{
             removeNode.child->mother = NULL;
         }
-        delete removeNode;
+        delete *removeNode;
         return *this;
     }
 	
