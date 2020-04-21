@@ -15,7 +15,6 @@ namespace family {
 	
 	class Tree {
 		public:
-			std::string findTemtom(int t, Node temp, std::string out)
 			family::Node root;
 			Tree (const std::string rootName);
 			Tree& addFather (const std::string sonName, const std::string fatherName);
