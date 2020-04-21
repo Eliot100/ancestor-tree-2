@@ -76,13 +76,13 @@ namespace family{
             tokenize(relation2Root, delim, out);
             int r = out.size();
             if (out[r - 1].compare("grandmother")) {
-                for (i; i < r; i++) {
+                for ( ; i < r; i++) {
                     temp = temp->mother;
                 }
                 return temp->name;
             } else {
                 if (out[r - 1].compare("grandfather")) {
-                    for (i; i < r; i++) {
+                    for ( ; i < r; i++) {
                         temp = temp->father;
                     }
                     return temp->name;
