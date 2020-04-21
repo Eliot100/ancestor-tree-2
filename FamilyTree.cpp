@@ -77,13 +77,13 @@ namespace family{
             int r = out.size();
             if (out[r - 1].compare("grandmother")) {
                 for ( ; i < r; i++) {
-                    temp = temp.mother;
+                    temp = &temp.mother;
                 }
                 return temp.name;
             } else {
                 if (out[r - 1].compare("grandfather")) {
                     for ( ; i < r; i++) {
-                        temp = temp.father;
+                        temp = &temp.father;
                     }
                     return temp.name;
                 }
