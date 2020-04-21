@@ -52,16 +52,14 @@ namespace family{
     }
 
     void Tree::display() {
+		cout << this.root->name ;
+		
     }
 
-    void tokenize(std::string const &str, const char delim,
-                  std::vector<std::string> &out)
-    {
+    void tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
         size_t start;
         size_t end = 0;
-
-        while ((start = str.find_first_not_of(delim, end)) != std::string::npos)
-        {
+        while ((start = str.find_first_not_of(delim, end)) != std::string::npos){
             end = str.find(delim, start);
             out.push_back(str.substr(start, end - start));
         }
@@ -104,12 +102,11 @@ namespace family{
         }
     }
 
-
-        return "";
-    }
-
     std::string Tree::relation(const std::string ancestorName) {
-        return "";
+		Node ancestorNode = recursiveGetAncestorNode(this->root , ancestorName);
+        if(ancestorNode == NULL)
+			return "unrelated";
+		return ancestorNode.relation;
     }
 
     Tree& Tree::remove(const std::string name) {
@@ -153,6 +150,3 @@ namespace family{
 			// return "unrelated";
 		// return ancestorNode.name;
 	// }
-    
-
-
