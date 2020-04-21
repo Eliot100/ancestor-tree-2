@@ -2,12 +2,12 @@
 
 namespace family{
 	
-    family::Node family::Node::Node(const std::string nodeName) : name(nodeName) {
+    family::Node::Node(const std::string nodeName) : name(nodeName) {
     	this->father = NULL;
 	this->mother = NULL;
     }
 
-    family::Tree family::Tree::Tree(const std::string rootName) : root(rootName) {
+    family::Tree::Tree(const std::string rootName) : root(rootName) {
         this->root.relation = "me";
         this->root.rank=0; 
     }
