@@ -12,20 +12,20 @@ namespace family{
     Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
 	    Node sonNode = recursiveGetAncestorNode(this->root , sonName);
 		Node* father = new Node(fatherName);
-        &father->child = sonNode;
-        &father.rank = sonNode->rank+1;
+        &father->child = &sonNode;
+        &father->rank = &sonNode->rank+1;
         &father->name = fatherName;
-        if(&father.rank==1)
+        if(&father->rank==1)
             &father.relation = "father";
-        else if(&father.rank==2)
+        else if(&father->rank==2)
             &father.relation = "grandfather";
-        else if(&father.rank>2){
+        else if(&father->rank>2){
             &father.relation = "grandfather";
             std::string tmpName = "";
             for (int i = 2; i < &father.rank; i++){
                 tmpName = "great-"+tmpName;
             }
-            &father.relation = tmpName+&father.relation;
+            &father.relation = tmpName+ &father.relation;
         }
         sonNode->father = father;			
         return *this;
