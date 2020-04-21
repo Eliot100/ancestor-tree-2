@@ -10,8 +10,7 @@ namespace family{
 	this->mother = NULL;
     }
 
-    family::Tree::Tree(const std::string rootName) {
-	this->root = new Node(rootName);
+    family::Tree::Tree(const std::string rootName) : root(rootName) {
         this->root.relation = "me";
         this->root.rank=0; 
     }
