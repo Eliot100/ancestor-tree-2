@@ -119,11 +119,11 @@ namespace family{
 
     Tree& Tree::remove(const std::string name) {
         Node removeNode = recursiveGetAncestorNode(this->root , name);
-        if (removeNode->rank==0)
+        if (removeNode.rank == 0)
             throw(std::runtime_error("error"));
         remove(removeNode.father->name);
         remove(removeNode.mother->name);
-        if(removeNode.child->father->name.compare(name) == 0){
+        if(removeNode.child->father->name.compare(name)){
             removeNode.child->father = NULL;
         }
         else{
