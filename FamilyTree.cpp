@@ -138,12 +138,12 @@ namespace family{
     		return &rootNode;
     	Node* ancestorNode = NULL;
     	if(rootNode.father != NULL){
-    		ancestorNode = recursiveGetAncestorNode(rootNode.father, ancestorName);
+    		ancestorNode = recursiveGetAncestorNode(&rootNode.father, ancestorName);
     		if(ancestorNode != NULL)
     			return ancestorNode;
     	}
     	if(rootNode.mother != NULL){
-    		ancestorNode = recursiveGetAncestorNode(rootNode.mother, ancestorName);
+    		ancestorNode = recursiveGetAncestorNode(&rootNode.mother, ancestorName);
     		if(ancestorNode != NULL)
     			return ancestorNode;
     	}
