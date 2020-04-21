@@ -54,8 +54,7 @@ namespace family{
     }
 
     void Tree::display() {
-		std::cout << this->root.name ;
-		
+	    printInorder(&this->root);
     }
 
     void tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
@@ -143,7 +142,7 @@ namespace family{
     }
 	
 	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
-	void printInorder( Node* root) { 
+	void printInorder(Node* root) { 
 		if (root == NULL) 
 			return;
 		printInorder(Node->father);
