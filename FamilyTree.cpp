@@ -34,20 +34,20 @@ namespace family{
     Tree& Tree::addMother(const std::string sonName, const std::string motherName) {
         Node sonNode = recursiveGetAncestorNode(this->root , sonName);
         Node* mother = new Node(motherName);
-        &mother->child = sonNode;
-        &mother.rank = sonNode->rank+1;
-        &mother->name = motherName;
-        if(&mother.rank==1)
-            &mother.relation = "mother";
-        else if(&mother.rank==2)
-            &mother.relation = "grandmother";
-        else if(&mother.rank>2){
-            &mother.relation = "grandmother";
+        mother->child = &sonNode;
+        mother->rank = sonNode.rank+1;
+       	mother->name = motherName;
+        if (mother->rank == 1)
+            mother->relation = "mother";
+        else if (mother->rank == 2)
+            mother->relation = "grandmother";
+        else if (mother->rank > 2){
+            mother->relation = "grandmother";
             std::string tmpName = "";
-            for (int i = 2; i < &mother.rank; i++){
-                tmpName = "great-"+tmpName;
+            for (int i = 2; i < mother->rank; i++){
+                tmpName = "great-" + tmpName;
             }
-            &mother.relation = tmpName+&mother.relation;
+            mother->relation = tmpName + mother->relation;
         }
         sonNode->mother = mother;
         return *this;
