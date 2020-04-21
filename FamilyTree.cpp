@@ -87,7 +87,7 @@ namespace family{
                     }
                     return temp.name;
                 }
-                else  return throw(std::runtime_error("error"));
+                else throw(std::runtime_error("error"));
             }
         } else {
             if (relation2Root.compare("mother"))
@@ -98,9 +98,7 @@ namespace family{
                 return this->root.mother->mother->name;
             else if (relation2Root.compare("grandfather"))
                 return this->root.father->father->name;
-            else
-                return throw(std::runtime_error("error"));
-
+            else throw(std::runtime_error("error"));
         }
     }
 
@@ -142,6 +140,5 @@ namespace family{
     			return &ancestorNode;
     	}
 		throw(std::runtime_error("error"));
-
     }
 }
