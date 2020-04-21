@@ -23,7 +23,7 @@ namespace family {
 			std::string find (const std::string relation2Root);
 			std::string relation (const std::string ancestorName);
 			void display ();
-		private:
+		
 			void tokenize(std::string const &str, const char delim, std::vector<std::string> &out);
 			family::Node recursiveGetAncestorNode(const Node &rootNode, const std::string ancestorName);	
 	};
