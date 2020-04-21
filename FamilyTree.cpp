@@ -13,10 +13,10 @@ namespace family{
     }
 
     Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
-	    Node sonNode = recursiveGetAncestorNode(this->root , sonName);
-		Node* father = new Node(fatherName);
-        father->child = &sonNode;
-        father->rank = sonNode.rank+1;
+	Node* sonNode = recursiveGetAncestorNode(this->root , sonName);
+	Node* father = new Node(fatherName);
+        father->child = sonNode;
+        father->rank = sonNode->rank+1;
         father->name = fatherName;
         if(father->rank == 1)
             father->relation = "father";
@@ -30,15 +30,15 @@ namespace family{
             }
             father->relation = tmpName + father->relation;
         }
-        sonNode.father = father;			
+        sonNode->father = father;			
         return *this;
     }
 
     Tree& Tree::addMother(const std::string sonName, const std::string motherName) {
-        Node sonNode = recursiveGetAncestorNode(this->root , sonName);
+        Node* sonNode = recursiveGetAncestorNode(this->root , sonName);
         Node* mother = new Node(motherName);
-        mother->child = &sonNode;
-        mother->rank = sonNode.rank+1;
+        mother->child = sonNode;
+        mother->rank = sonNode->rank+1;
        	mother->name = motherName;
         if (mother->rank == 1)
             mother->relation = "mother";
@@ -52,7 +52,7 @@ namespace family{
             }
             mother->relation = tmpName + mother->relation;
         }
-        sonNode.mother = mother;
+        sonNode->mother = mother;
         return *this;
     }
 
