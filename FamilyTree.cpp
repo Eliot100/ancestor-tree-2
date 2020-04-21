@@ -134,7 +134,7 @@ namespace family{
     }
 	
     Node& recursiveGetAncestorNode(const Node &rootNode, string ancestorName){
-    	if(rootNode.name == ancestorName)
+    	if(rootNode.name.compare(ancestorName))
     		return rootNode;
     	node& ancestorNode;
     	if(rootNode->father != NULL){
