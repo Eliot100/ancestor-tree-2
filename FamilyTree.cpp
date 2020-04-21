@@ -93,7 +93,7 @@ namespace family{
             std::vector <std::string> out;
             tokenize(relation2Root, delim, out);
             int r = out.size();
-	    std::string temtom = family::findTemtom(r, temp, out[r - 1]);
+	    std::string temtom = findTemtom(r, temp, out[r - 1]);
             if(temtom.compare(NULL))
 	       throw (std::runtime_error("error"));
 	    return temtom;
