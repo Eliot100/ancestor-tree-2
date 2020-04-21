@@ -5,51 +5,51 @@ namespace family{
     family::Node::Node(const std::string nodeName) : name(nodeName) {}
 
     family::Tree::Tree(const std::string rootName) : root(rootName) {
-        this->root->relation = "me";
-        this->root->rank=0; 
+        this->root.relation = "me";
+        this->root.rank=0; 
     }
 
     Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
 	    Node sonNode = recursiveGetAncestorNode(this->root , sonName);
-		Node *father = new Node;
-        father->child = sonNode;
-        father->rank = sonNode->rank+1;
-        father->name = fatherName;
-        if(father->rank==1)
-            father->relation = "father";
-        else if(father->rank==2)
-            father->relation = "grandfather";
-        else if(father->rank>2){
-            father->relation = "grandfather";
+		Node* father = new Node(fatherName);
+        &father->child = sonNode;
+        &father.rank = sonNode->rank+1;
+        &father->name = fatherName;
+        if(&father.rank==1)
+            &father.relation = "father";
+        else if(&father.rank==2)
+            &father.relation = "grandfather";
+        else if(&father.rank>2){
+            &father.relation = "grandfather";
             std::string tmpName = "";
-            for (int i = 2; i < father->rank; i++){
+            for (int i = 2; i < &father.rank; i++){
                 tmpName = "great-"+tmpName;
             }
-            father->relation = tmpName+father->relation;
+            &father.relation = tmpName+&father.relation;
         }
-        sonNode->father= father;			
+        sonNode->father = father;			
         return *this;
     }
 
     Tree& Tree::addMother(const std::string sonName, const std::string motherName) {
         Node sonNode = recursiveGetAncestorNode(this->root , sonName);
-        Node *mother = new Node;
-        mother->child = sonNode;
-        mother->rank = sonNode->rank+1;
-        mother->name = motherName;
-        if(mother->rank==1)
-            mother->relation = "mother";
-        else if(mother->rank==2)
-            mother->relation = "grandmother";
-        else if(mother->rank>2){
-            mother->relation = "grandmother";
+        Node* mother = new Node;
+        &mother->child = sonNode;
+        &mother.rank = sonNode->rank+1;
+        &mother->name = motherName;
+        if(&mother.rank==1)
+            &mother.relation = "mother";
+        else if(&mother.rank==2)
+            &mother.relation = "grandmother";
+        else if(&mother.rank>2){
+            &mother.relation = "grandmother";
             std::string tmpName = "";
-            for (int i = 2; i < mother->rank; i++){
+            for (int i = 2; i < &mother.rank; i++){
                 tmpName = "great-"+tmpName;
             }
-            mother->relation = tmpName+mother->relation;
+            &mother.relation = tmpName+&mother.relation;
         }
-        sonNode->mother= mother;
+        sonNode->mother = mother;
         return *this;
     }
 
@@ -105,7 +105,7 @@ namespace family{
     }
 
     std::string Tree::relation(const std::string ancestorName) {
-		Node ancestorNode = recursiveGetAncestorNode(this->root , ancestorName);
+		Node ancestorNode = recursiveGetAncestorNode(this->root, ancestorName);
         if(ancestorNode == NULL)
 			return "unrelated";
 		return ancestorNode.relation;
