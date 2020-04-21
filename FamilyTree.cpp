@@ -13,7 +13,7 @@ namespace family{
 	    Node sonNode = recursiveGetAncestorNode(this->root , sonName);
 		Node* father = new Node(fatherName);
         father->child = &sonNode;
-        &father->rank = sonNode.rank+1;
+        father->rank = sonNode.rank+1;
         &father.name = fatherName;
         if(&father->rank==1)
             &father.relation = "father";
