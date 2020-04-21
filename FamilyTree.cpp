@@ -69,7 +69,7 @@ namespace family{
         }
     }
 
-    std::string Tree::findTemtom(int t, Node *temp, std::string out) {
+    std::string findTemtom(int t, Node *temp, std::string out) {
         if (t > 1) {
             if (temp->mother != NULL)
              return findTemtom(t - 1, temp->mother , out);
@@ -133,7 +133,7 @@ namespace family{
         return *this;
     }
 	
-    Node* Tree::recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
+    Node* recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return &rootNode;
     	Node* ancestorNode = NULL;
