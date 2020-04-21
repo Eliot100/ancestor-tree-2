@@ -1,5 +1,5 @@
 #include "FamilyTree.hpp"
-
+#include <exception>
 namespace family{
 	
     family::Node::Node(const std::string nodeName) {
@@ -150,7 +150,7 @@ namespace family{
     		if(ancestorNode != NULL)
     			return ancestorNode;
     	}
-		throw runtime_error("Error -  doesn't exist"); 
+		std::throw runtime_error("Error -  doesn't exist"); 
     }
 	
 	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
