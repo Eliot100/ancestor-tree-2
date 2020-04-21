@@ -49,12 +49,12 @@ namespace family{
             }
             mother->relation = tmpName + mother->relation;
         }
-        sonNode->mother = mother;
+        sonNode.mother = mother;
         return *this;
     }
 
     void Tree::display() {
-		cout << this.root->name ;
+		cout << this->root->name ;
 		
     }
 
@@ -70,7 +70,7 @@ namespace family{
     std::string Tree::find(const std::string relation2Root) {
         int L = relation2Root.length(), i = 0;
         Node *temp = this->root;
-        if (l > 11) {
+        if (L > 11) {
             const char delim = '-';
             std::vector <std::string> out;
             tokenize(relation2Root, delim, out);
