@@ -66,7 +66,7 @@ namespace family{
         }
     }
 
-    void findTemtom(int t, Node temp, std::string out) {
+    std::string findTemtom(int t, Node temp, std::string out) {
         if (t > 1) {
             if (temp.mother != NULL)
                 findTemtom(t - 1, &temp.mother, out);
@@ -75,9 +75,9 @@ namespace family{
         }
         else
         if (out.compare("grandmother") && (temp.mother != NULL)) {
-            return std::cout << temp.mother->name;
+		return temp.mother->name;
         } else if (out.compare("grandfather") && (temp.father != NULL)) {
-            return std::cout << temp.mother->father;
+		return temp.mother->father;
         }
         throw(std::runtime_error("error"));
     }
@@ -89,7 +89,7 @@ namespace family{
             std::vector <std::string> out;
             tokenize(relation2Root, delim, out);
             int r = out.size();
-            findTemtom(r, &temp, out[r - 1]);
+            return findTemtom(r, &temp, out[r - 1]);
         } else {
             if (relation2Root.compare("mother"))
                 return this->root.mother->name;
