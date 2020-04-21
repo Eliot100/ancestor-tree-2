@@ -69,12 +69,12 @@ namespace family{
 
     std::string Tree::find(const std::string relation2Root) {
         int L = relation2Root.length(), i = 0;
-        Node *temp = this->root;
+        Node temp = this->root;
         if (L > 11) {
             const char delim = '-';
             std::vector <std::string> out;
             tokenize(relation2Root, delim, out);
-            int r = out.length();
+            int r = out.size();
             if (out[r - 1].compare("grandmother")) {
                 for (i; i < r; i++) {
                     temp = temp->mother;
