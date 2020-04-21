@@ -133,7 +133,7 @@ namespace family{
         return *this;
     }
 	
-    Node& recursiveGetAncestorNode(const Node &rootNode, string ancestorName){
+    Node& recursiveGetAncestorNode(Node &rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return rootNode;
     	Node& ancestorNode;
