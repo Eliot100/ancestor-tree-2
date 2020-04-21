@@ -78,7 +78,7 @@ namespace family{
         if (out.compare("grandmother") && (temp.mother != NULL)) {
 		return temp.mother->name;
         } else if (out.compare("grandfather") && (temp.father != NULL)) {
-		return temp.mother->father;
+		return temp.father->name;
         }
         throw(std::runtime_error("error"));
     }
