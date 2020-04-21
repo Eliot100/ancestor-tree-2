@@ -69,7 +69,7 @@ namespace family{
     std::string findTemtom(int t, Node *temp, std::string out) {
         if (t > 1) {
             if (temp->mother != NULL)
-             return findTemtom(t - 1, &temp->mother, out);
+             return findTemtom(t - 1,temp->mother, out);
             if (temp->father != NULL)
               return findTemtom(t - 1, &temp->father, out);
         }
