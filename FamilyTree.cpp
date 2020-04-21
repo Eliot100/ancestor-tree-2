@@ -150,7 +150,7 @@ namespace family{
     		if(ancestorNode != NULL)
     			return ancestorNode;
     	}
-		std::throw runtime_error("Error -  doesn't exist"); 
+		throw std::runtime_error("error"); 
     }
 	
 	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
