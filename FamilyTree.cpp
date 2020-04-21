@@ -143,7 +143,7 @@ namespace family{
     			return ancestorNode;
     	}
     	if(rootNode.mother != NULL){
-    		ancestorNode = recursiveGetAncestorNode(&rootNode.mother, ancestorName);
+    		ancestorNode = recursiveGetAncestorNode(rootNode.mother, ancestorName);
     		if(ancestorNode != NULL)
     			return ancestorNode;
     	}
