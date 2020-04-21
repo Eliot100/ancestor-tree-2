@@ -60,7 +60,7 @@ namespace family{
 	    printInorder(&this->root);
     }
 
-    void tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
+    void Tree::tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
         size_t start;
         size_t end = 0;
         while ((start = str.find_first_not_of(delim, end)) != std::string::npos){
@@ -69,7 +69,7 @@ namespace family{
         }
     }
 
-    std::string findTemtom(int t, Node *temp, std::string out) {
+    std::string Tree::findTemtom(int t, Node *temp, std::string out) {
         if (t > 1) {
             if (temp->mother != NULL)
              return findTemtom(t - 1, temp->mother , out);
@@ -133,7 +133,7 @@ namespace family{
         return *this;
     }
 	
-    Node* recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
+    Node* Tree::recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return &rootNode;
     	Node* ancestorNode = NULL;
