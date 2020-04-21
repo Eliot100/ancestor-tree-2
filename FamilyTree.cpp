@@ -22,10 +22,10 @@ namespace family{
         else if (father->rank > 2){
             father->relation = "grandfather";
             std::string tmpName = "";
-            for (int i = 2; i < father.rank; i++){
+            for (int i = 2; i < father->rank; i++){
                 tmpName = "great-"+tmpName;
             }
-            &father.relation = tmpName+ &father.relation;
+            father->relation = tmpName + father->relation;
         }
         sonNode->father = father;			
         return *this;
