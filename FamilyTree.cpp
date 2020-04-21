@@ -27,13 +27,13 @@ namespace family{
             }
             father->relation = tmpName + father->relation;
         }
-        sonNode->father = father;			
+        sonNode.father = father;			
         return *this;
     }
 
     Tree& Tree::addMother(const std::string sonName, const std::string motherName) {
         Node sonNode = recursiveGetAncestorNode(this->root , sonName);
-        Node* mother = new Node;
+        Node* mother = new Node(motherName);
         &mother->child = sonNode;
         &mother.rank = sonNode->rank+1;
         &mother->name = motherName;
