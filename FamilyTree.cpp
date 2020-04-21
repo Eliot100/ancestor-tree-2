@@ -87,7 +87,7 @@ namespace family{
                     }
                     return temp.name;
                 }
-                else  return "unrelated";
+                else  return throw(std::runtime_error("error"));
             }
         } else {
             if (relation2Root.compare("mother"))
@@ -99,7 +99,7 @@ namespace family{
             else if (relation2Root.compare("grandfather"))
                 return this->root.father->father->name;
             else
-                return "unrelated";
+                return throw(std::runtime_error("error"));
 
         }
     }
