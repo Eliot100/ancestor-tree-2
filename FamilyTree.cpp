@@ -133,16 +133,16 @@ namespace family{
         return *this;
     }
 	
-    Node& recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
+    Node* recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return rootNode;
-    	Node& ancestorNode = NULL;
-    	if(rootNode->father != NULL){
+    	Node* ancestorNode = NULL;
+    	if(rootNode.father != NULL){
     		ancestorNode = recursiveGetAncestorNode(rootNode.father, ancestorName);
     		if(ancestorNode != NULL)
     			return ancestorNode;
     	}
-    	if(rootNode->mother != NULL){
+    	if(rootNode.mother != NULL){
     		ancestorNode = recursiveGetAncestorNode(rootNode.mother, ancestorName);
     		if(ancestorNode != NULL)
     			return ancestorNode;
