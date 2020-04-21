@@ -69,9 +69,9 @@ namespace family{
     void findTemtom(int t, Node temp, std::string out) {
         if (t > 1) {
             if (temp.mother != NULL)
-                findTemtom(t - 1, temp = &temp.mother);
+                findTemtom(t - 1, &temp.mother, out);
             if (temp.father != NULL)
-                findTemtom(t - 1, temp = &temp.father);
+                findTemtom(t - 1, &temp.father, out);
         }
         else
         if (out.compare("grandmother") && (temp.mother != NULL)) {
