@@ -154,8 +154,8 @@ namespace family{
 	void printInorder(Node* root) { 
 		if (root == NULL) 
 			return;
-		printInorder(Node->father);
+		printInorder(root->father);
 		cout << root->name << "-" << root->relation <<" "; 
-		printInorder(Node->mother); 
+		printInorder(root->mother); 
 	}
 }
