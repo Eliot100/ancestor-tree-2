@@ -27,7 +27,7 @@ namespace family {
 			void tokenize(std::string const &str, const char delim, std::vector<std::string> &out);
 			family::Node recursiveGetAncestorNode(const Node &rootNode, const std::string ancestorName);	
 	};
-	public:
-		void printInorder( Node* root);
+	
+	void printInorder( Node* root);
 
 }
