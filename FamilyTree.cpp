@@ -138,7 +138,7 @@ namespace family{
     		return &rootNode;
     	Node* ancestorNode = NULL;
     	if(rootNode.father != NULL){
-    		ancestorNode = recursiveGetAncestorNode(&rootNode.father, ancestorName);
+    		ancestorNode = recursiveGetAncestorNode(rootNode.father, ancestorName);
     		if(ancestorNode != NULL)
     			return ancestorNode;
     	}
