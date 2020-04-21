@@ -155,7 +155,7 @@ namespace family{
 		if (root == NULL) 
 			return;
 		printInorder(root->father);
-		cout << root->name << "-" << root->relation <<" "; 
+		std::cout << root->name << "-" << root->relation <<" "; 
 		printInorder(root->mother); 
 	}
 }
