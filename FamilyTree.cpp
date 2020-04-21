@@ -136,7 +136,7 @@ namespace family{
     Node& recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return rootNode;
-    	Node& ancestorNode;
+    	Node& ancestorNode = NULL;
     	if(rootNode->father != NULL){
     		ancestorNode = recursiveGetAncestorNode(rootNode.father, ancestorName);
     		if(ancestorNode != NULL)
