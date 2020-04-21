@@ -72,6 +72,7 @@ namespace family{
                 findTemtom(t - 1, &temp.mother, out);
             if (temp.father != NULL)
                 findTemtom(t - 1, &temp.father, out);
+		return;
         }
         else
         if (out.compare("grandmother") && (temp.mother != NULL)) {
