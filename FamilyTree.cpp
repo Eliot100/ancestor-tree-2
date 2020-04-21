@@ -69,28 +69,32 @@ namespace family{
     std::string findTemtom(int t, Node temp, std::string out) {
         if (t > 1) {
             if (temp.mother != NULL)
-                findTemtom(t - 1, &temp.mother, out);
+             return findTemtom(t - 1, &temp.mother, out);
             if (temp.father != NULL)
-                findTemtom(t - 1, &temp.father, out);
-		return;
+              return findTemtom(t - 1, &temp.father, out);
         }
-        else
-        if (out.compare("grandmother") && (temp.mother != NULL)) {
-		return temp.mother->name;
-        } else if (out.compare("grandfather") && (temp.father != NULL)) {
-		return temp.father->name;
-        }
-        throw(std::runtime_error("error"));
+        else{
+        	if (out.compare("grandmother") && (temp.mother != NULL)) {
+			return temp.mother->name;
+        	} else if (out.compare("grandfather") && (temp.father != NULL)) {
+			return temp.father->name;
+        	}
+	}
+        return;
     }
     std::string Tree::find(const std::string relation2Root) {
-        int L = relation2Root.length(), i = 0;
+        int L = relation2Root.length();
+	int i = 0;
         Node temp = this->root;
         if (L > 11) {
             const char delim = '-';
             std::vector <std::string> out;
             tokenize(relation2Root, delim, out);
             int r = out.size();
-            return findTemtom(r, &temp, out[r - 1]);
+	    std::string temtom = findTemtom(r, &temp, out[r - 1]);
+            if(temtom.compare(NULL))
+	       throw (std::runtime_error("error"));
+	    return temtom;
         } else {
             if (relation2Root.compare("mother"))
                 return this->root.mother->name;
