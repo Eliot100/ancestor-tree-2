@@ -10,7 +10,7 @@ namespace family {
             std::string relation;
             family::Node *mother, *father,*child;
             int rank;
-	    Node(const std::string nodeName) : name(nodeName);
+	    Node(const std::string nodeName);
     };
 	
 	class Tree {
