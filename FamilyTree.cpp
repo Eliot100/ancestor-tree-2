@@ -14,10 +14,10 @@ namespace family{
 		Node* father = new Node(fatherName);
         father->child = &sonNode;
         father->rank = sonNode.rank+1;
-        &father.name = fatherName;
-        if(&father->rank==1)
-            &father.relation = "father";
-        else if(&father.rank==2)
+        father->name = fatherName;
+        if(father->rank == 1)
+            father->relation = "father";
+        else if(father.rank == 2)
             &father.relation = "grandfather";
         else if(&father.rank>2){
             &father.relation = "grandfather";
