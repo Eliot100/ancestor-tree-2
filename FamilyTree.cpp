@@ -77,27 +77,27 @@ namespace family{
             int r = out.size();
             if (out[r - 1].compare("grandmother")) {
                 for ( ; i < r; i++) {
-                    temp = temp->mother;
+                    temp = temp.mother;
                 }
-                return temp->name;
+                return temp.name;
             } else {
                 if (out[r - 1].compare("grandfather")) {
                     for ( ; i < r; i++) {
-                        temp = temp->father;
+                        temp = temp.father;
                     }
-                    return temp->name;
+                    return temp.name;
                 }
                 else  return "unrelated";
             }
         } else {
             if (relation2Root.compare("mother"))
-                return this->root->mother->name;
+                return this->root.mother->name;
             else if (relation2Root.compare("father"))
-                return this->root->father->name;
+                return this->root.father->name;
             else if (relation2Root.compare("grandmother"))
-                return this->root->mother->mother->name;
+                return this->root.mother->mother->name;
             else if (relation2Root.compare("grandfather"))
-                return this->root->father->father->name;
+                return this->root.father->father->name;
             else
                 return "unrelated";
 
