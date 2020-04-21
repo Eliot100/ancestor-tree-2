@@ -129,23 +129,23 @@ namespace family{
         else{
             removeNode.child->mother = NULL;
         }
-        delete *removeNode;
+        delete removeNode;
         return *this;
     }
 	
-    Node& recursiveGetAncestorNode(Node &rootNode, std::string ancestorName){
+    Node& recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return rootNode;
     	Node& ancestorNode;
     	if(rootNode->father != NULL){
-    		ancestorNode = recursiveGetAncestorNode(rootNode->father, ancestorName);
+    		ancestorNode = recursiveGetAncestorNode(rootNode.father, ancestorName);
     		if(ancestorNode != NULL)
-    			return &ancestorNode;
+    			return ancestorNode;
     	}
     	if(rootNode->mother != NULL){
-    		ancestorNode = recursiveGetAncestorNode(rootNode->mother, ancestorName);
+    		ancestorNode = recursiveGetAncestorNode(rootNode.mother, ancestorName);
     		if(ancestorNode != NULL)
-    			return &ancestorNode;
+    			return ancestorNode;
     	}
 		throw(std::runtime_error("error"));
     }
