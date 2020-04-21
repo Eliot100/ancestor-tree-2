@@ -1,6 +1,8 @@
 #include "FamilyTree.hpp"
 
 namespace family{
+	
+    family::Node::Node(const std::string nodeName) : name(nodeName) {}
 
     family::Tree::Tree(const std::string rootName) : root(rootName) {
         this->root->relation = "me";
