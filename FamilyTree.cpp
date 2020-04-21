@@ -125,7 +125,7 @@ namespace family{
         return *this;
     }
 	
-    Node& recursiveGetAncestorNode(const node &rootNode, string ancestorName){
+    Node& recursiveGetAncestorNode(const Node &rootNode, string ancestorName){
     	if(rootNode.name == ancestorName)
     		return rootNode;
     	node& ancestorNode;
@@ -143,10 +143,3 @@ namespace family{
 
     }
 }
-
-	// string relation (const string ancestorName){
-		// node ancestorNode = recursiveGetAncestorNode(this.root, ancestorName);
-		// if(ancestorNode == NULL)
-			// return "unrelated";
-		// return ancestorNode.name;
-	// }
