@@ -60,7 +60,7 @@ namespace family{
 	    printInorder(&this->root);
     }
 
-    void Tree::tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
+    void tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
         size_t start;
         size_t end = 0;
         while ((start = str.find_first_not_of(delim, end)) != std::string::npos){
