@@ -54,7 +54,7 @@ namespace family{
     }
 
     void Tree::display() {
-		cout << this->root->name ;
+		std::cout << this->root->name ;
 		
     }
 
