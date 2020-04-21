@@ -111,25 +111,25 @@ namespace family{
     }
 
     std::string Tree::relation(const std::string ancestorName) {
-		Node ancestorNode = recursiveGetAncestorNode(this->root, ancestorName);
+		Node* ancestorNode = recursiveGetAncestorNode(this->root, ancestorName);
         if(ancestorNode == NULL)
 			return "unrelated";
-		return ancestorNode.relation;
+		return ancestorNode->relation;
     }
 
     Tree& Tree::remove(const std::string name) {
-        Node removeNode = recursiveGetAncestorNode(this->root , name);
-        if (removeNode.rank == 0)
+        Node* removeNode = recursiveGetAncestorNode(this->root , name);
+        if (removeNode->rank == 0)
             throw(std::runtime_error("error"));
-        remove(removeNode.father->name);
-        remove(removeNode.mother->name);
-        if(removeNode.child->father->name.compare(name)){
-            removeNode.child->father = NULL;
+        remove(removeNode->father->name);
+        remove(removeNode->mother->name);
+        if(removeNode->child->father->name.compare(name)){
+            removeNode->child->father = NULL;
         }
         else{
-            removeNode.child->mother = NULL;
+            removeNode->child->mother = NULL;
         }
-        delete removeNode;
+        delete *removeNode;
         return *this;
     }
 	
