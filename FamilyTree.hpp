@@ -15,6 +15,7 @@ namespace family {
 	
 	class Tree {
 		public:
+			std::string findTemtom(int t, Node temp, std::string out)
 			family::Node root;
 			Tree (const std::string rootName);
 			Tree& addFather (const std::string sonName, const std::string fatherName);
@@ -24,10 +25,12 @@ namespace family {
 			std::string relation (const std::string ancestorName);
 			void display ();
 		
+			void printInorder( Node* root);	
 			void tokenize(std::string const &str, const char delim, std::vector<std::string> &out);
-			family::Node recursiveGetAncestorNode(const Node &rootNode, const std::string ancestorName);	
+			std::string findTemtom(int t, Node temp, std::string out);
+			family::Node recursiveGetAncestorNode(const Node &rootNode, const std::string ancestorName);
 	};
 	
-	void printInorder( Node* root);
+	
 
 }
