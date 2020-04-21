@@ -54,7 +54,57 @@ namespace family{
     void Tree::display() {
     }
 
+    void tokenize(std::string const &str, const char delim,
+                  std::vector<std::string> &out)
+    {
+        size_t start;
+        size_t end = 0;
+
+        while ((start = str.find_first_not_of(delim, end)) != std::string::npos)
+        {
+            end = str.find(delim, start);
+            out.push_back(str.substr(start, end - start));
+        }
+    }
+
     std::string Tree::find(const std::string relation2Root) {
+        int L = relation2Root.length(), i = 0;
+        Node *temp = this->root;
+        if (l > 11) {
+            const char delim = '-';
+            std::vector <std::string> out;
+            tokenize(relation2Root, delim, out);
+            int r = out.length();
+            if (out[r - 1].compare("grandmother")) {
+                for (i; i < r; i++) {
+                    temp = temp->mother;
+                }
+                return temp->name;
+            } else {
+                if (out[r - 1].compare("grandfather")) {
+                    for (i; i < r; i++) {
+                        temp = temp->father;
+                    }
+                    return temp->name;
+                }
+                else  return "unrelated";
+            }
+        } else {
+            if (relation2Root.compare("mother"))
+                return this->root->mother->name;
+            else if (relation2Root.compare("father"))
+                return this->root->father->name;
+            else if (relation2Root.compare("grandmother"))
+                return this->root->mother->mother->name;
+            else if (relation2Root.compare("grandfather"))
+                return this->root->father->father->name;
+            else
+                return "unrelated";
+
+        }
+    }
+
+
         return "";
     }
 
