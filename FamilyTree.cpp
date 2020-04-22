@@ -2,7 +2,7 @@
 #include <exception>
 using namespace family;
 
-    Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
+    Tree& Tree::addFather(std::string sonName,std::string fatherName) {
 	Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
 	Node* father = new Node(fatherName);
         father->child = sonNode;
@@ -24,7 +24,7 @@ using namespace family;
         return *this;
     }
 
-    Tree& Tree::addMother(const std::string sonName, const std::string motherName) {
+    Tree& Tree::addMother(std::string sonName, std::string motherName) {
         Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
         Node* mother = new Node(motherName);
         mother->child = sonNode;
@@ -50,7 +50,7 @@ using namespace family;
 	    printInorder(this->root);
     }
 
-    void tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
+    void tokenize(std::string &str, const char delim, std::vector<std::string> &out){
         size_t start;
         size_t end = 0;
         while ((start = str.find_first_not_of(delim, end)) != std::string::npos){
@@ -75,7 +75,7 @@ using namespace family;
 	}
    
     }
-    std::string Tree::find(const std::string relation2Root) {
+    std::string Tree::find( std::string relation2Root) {
         int L = relation2Root.length();
 	int i = 0;
         Node temp = *this->root;
@@ -101,14 +101,14 @@ using namespace family;
         }
     }
 
-    std::string Tree::relation(const std::string ancestorName) {
+    std::string Tree::relation( std::string ancestorName) {
 		Node* ancestorNode = recursiveGetAncestorNode(*this->root, ancestorName);
         if(ancestorNode == NULL)
 			return "unrelated";
 		return ancestorNode->relation;
     }
 
-    Tree& Tree::remove(const std::string name) {
+    Tree& Tree::remove( std::string name) {
         Node* removeNode = recursiveGetAncestorNode(*this->root , name);
         if (removeNode->rank == 0)
             throw(std::runtime_error("error"));
