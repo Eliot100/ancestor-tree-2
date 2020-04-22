@@ -9,9 +9,10 @@ using namespace family;
     	this->father = NULL;
 	this->mother = NULL;
     }
-    Tree::Tree(const std::string rootName) : root(rootName) {
-        this->root.relation = "me";
-        this->root.rank=0; 
+    Tree::Tree(const std::string rootName) {
+	this->root = new Node(rootName);
+        root->relation = "me";
+        this->root->rank=0; 
     }
 
     Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
