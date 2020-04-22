@@ -12,13 +12,14 @@ namespace family {
             std::string relation;
             family::Node *mother,*father,*child;
 	    Node(std::string nodeName)
-	    : rank(0), name(""),relation(""), mother(nullptr), father(nullptr), child(nullptr)
-	    {}
+	    : rank(0), mother(nullptr), father(nullptr), child(nullptr)
+	    {
+	    	name = nodeName;
+	    }
 
 	    ~ Node(){
             if(mother) delete mother;
             if(father) delete father;
-            if(child) delete child;
 	    }
     };
 	
@@ -27,10 +28,8 @@ namespace family {
 			family::Node* root;
 			Tree (std::string rootName)
 			: root(new Node(rootName)) {
-                root->relation = "me";
-                root->name= rootName;
-                this->root->rank = 0;
-            }
+                		root->relation = "me";
+            		}
 			Tree& addFather (std::string sonName, std::string fatherName);
 			Tree& addMother (std::string sonName, std::string motherName);
 			Tree& remove (std::string name) ;
