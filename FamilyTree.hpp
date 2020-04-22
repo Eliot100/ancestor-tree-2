@@ -5,14 +5,15 @@ using namespace std;
 
 namespace family {
 	
-    class Node {
-        public:
+    struct Node {
+       
             int rank;
             std::string name;
             std::string relation;
             family::Node *mother, *father, *child;
 	    Node(const std::string nodeName);
     };
+	typedef struct Node Node;
 	
 	class Tree {
 		public:
