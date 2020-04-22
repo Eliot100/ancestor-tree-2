@@ -28,7 +28,7 @@ namespace family {
 	
 	
 }
-void printInorder(Node* root);	
+void printInorder(family::Node* root);	
 void tokenize(std::string const &str, const char delim, std::vector<std::string> &out);
 std::string findTemtom(int t, family::Node* temp, std::string out);
 family::Node* recursiveGetAncestorNode(family::Node &rootNode, const std::string ancestorName);
