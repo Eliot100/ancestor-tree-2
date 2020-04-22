@@ -12,8 +12,8 @@ using namespace family;
     	}
 	Node* father = new Node(fatherName);
         father->child = &sonNode;
-        father->rank = (sonNode->rank)+1;
-        cout<<father->rank<<cout;
+        father->rank = (sonNode.rank)+1;
+        cout<<father->rank;
         father->name = fatherName;
         if(father->rank == 1)
             father->relation = "father";
