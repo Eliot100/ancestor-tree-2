@@ -38,7 +38,7 @@ using namespace family;
     }
 
     Tree& Tree::addMother(const std::string sonName, const std::string motherName) {
-        Node* sonNode = recursiveGetAncestorNode(this->root , sonName);
+        Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
         Node* mother = new Node(motherName);
         mother->child = sonNode;
         mother->rank = sonNode->rank+1;
@@ -115,14 +115,14 @@ using namespace family;
     }
 
     std::string Tree::relation(const std::string ancestorName) {
-		Node* ancestorNode = recursiveGetAncestorNode(this->root, ancestorName);
+		Node* ancestorNode = recursiveGetAncestorNode(*this->root, ancestorName);
         if(ancestorNode == NULL)
 			return "unrelated";
 		return ancestorNode->relation;
     }
 
     Tree& Tree::remove(const std::string name) {
-        Node* removeNode = recursiveGetAncestorNode(this->root , name);
+        Node* removeNode = recursiveGetAncestorNode(*this->root , name);
         if (removeNode->rank == 0)
             throw(std::runtime_error("error"));
         remove(removeNode->father->name);
