@@ -32,14 +32,14 @@ using namespace family;
     }
 
     Tree& Tree::addMother(std::string sonName, std::string motherName) {
-        Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
-        if (!(sonNode->name.compare(sonName))) { throw runtime_error("la"); }
-        if ((sonNode->mother!=(nullptr))) {
+        Node& sonNode = recursiveGetAncestorNode(*this->root , sonName);
+        if (!(sonNode.name.compare(sonName))) { throw runtime_error("la"); }
+        if ((sonNode.mother!=(nullptr))) {
             throw runtime_error("lala");
         }
         Node* mother = new Node(motherName);
-        mother->child = sonNode;
-        mother->rank = sonNode->rank+1;
+        mother->child = &sonNode;
+        mother->rank = sonNode.rank+1;
        	mother->name = motherName;
         if (mother->rank == 1)
             mother->relation = "mother";
@@ -53,7 +53,7 @@ using namespace family;
             }
             mother->relation = tmpName + mother->relation;
         }
-        sonNode->mother = mother;
+        sonNode.mother = mother;
         return *this;
     }
 
