@@ -136,7 +136,7 @@ using namespace family;
     Node& recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return *rootNode;
-    	Node* ancestorNode = nullptr;
+    	Node& ancestorNode = nullptr;
     	if(rootNode.father != nullptr){
     		ancestorNode = recursiveGetAncestorNode(*rootNode.father, ancestorName);
     		if(ancestorNode != nullptr)
@@ -151,9 +151,9 @@ using namespace family;
         return nullptr;
     }
 	
-	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+	//help from: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 	void printInorder(Node* root) { 
-		if (root == NULL) 
+		if (root == nullptr) 
 			return;
 		printInorder(root->father);
 		std::cout << root->name << "-" << root->relation <<" "; 
