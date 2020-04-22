@@ -111,10 +111,10 @@ using namespace family;
     }
 
     std::string Tree::relation( std::string ancestorName) {
-		Node* ancestorNode = recursiveGetAncestorNode(*this->root, ancestorName);
+		Node& ancestorNode = recursiveGetAncestorNode(*this->root, ancestorName);
         if(ancestorNode == nullptr)
 			return "unrelated";
-		return ancestorNode->relation;
+		return ancestorNode.relation;
     }
 
     Tree& Tree::remove( std::string name) {
