@@ -6,7 +6,9 @@
 using namespace std;
 
 TEST_CASE("Reference add Tree case") { 
+	cout<<"befor"<<endl;
 	family::Tree T ("Yosef");
+	cout<<"after"<<endl;
 	T.addFather("Yosef", "Yaakov")
 	 .addMother("Yosef", "Rachel")
 	 .addFather("Yaakov", "Isaac")
