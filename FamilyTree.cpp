@@ -3,17 +3,17 @@
 using namespace family;
 
     Tree& Tree::addFather(std::string sonName,std::string fatherName) {
-	Node& sonNode = recursiveGetAncestorNode(*this->root , sonName);
-	if ( !(sonNode.name.compare(sonName))) { 	
+	Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
+	if (!(sonNode->name.compare(sonName))) { 	
 		throw runtime_error("la"); 
 	}
-	if ((sonNode.father!=(nullptr))) {
+	if ((sonNode->father!=(nullptr))) {
         	throw runtime_error("lala");
     	}
+	
 	Node* father = new Node(fatherName);
-        father->child = &sonNode;
-        father->rank = (sonNode.rank)+1;
-        cout<<father->rank;
+        father->child = sonNode;
+        father->rank = (sonNode->rank)+1;
         father->name = fatherName;
         if(father->rank == 1)
             father->relation = "father";
@@ -27,19 +27,19 @@ using namespace family;
             }
             father->relation = tmpName + father->relation;
         }
-        sonNode.father = father;
+        sonNode->father = father;
         return *this;
     }
 
     Tree& Tree::addMother(std::string sonName, std::string motherName) {
-        Node& sonNode = recursiveGetAncestorNode(*this->root , sonName);
-        if (!(sonNode.name.compare(sonName))) { throw runtime_error("la"); }
-        if ((sonNode.mother!=(nullptr))) {
+        Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
+        if (!(sonNode->name.compare(sonName))) { throw runtime_error("la"); }
+        if ((sonNode->mother!=(nullptr))) {
             throw runtime_error("lala");
         }
         Node* mother = new Node(motherName);
-        mother->child = &sonNode;
-        mother->rank = sonNode.rank+1;
+        mother->child = sonNode;
+        mother->rank = sonNode->rank+1;
        	mother->name = motherName;
         if (mother->rank == 1)
             mother->relation = "mother";
@@ -53,7 +53,7 @@ using namespace family;
             }
             mother->relation = tmpName + mother->relation;
         }
-        sonNode.mother = mother;
+        sonNode->mother = mother;
         return *this;
     }
 
@@ -111,10 +111,10 @@ using namespace family;
     }
 
     std::string Tree::relation( std::string ancestorName) {
-		Node& ancestorNode = recursiveGetAncestorNode(*this->root, ancestorName);
+		Node* ancestorNode = recursiveGetAncestorNode(*this->root, ancestorName);
         if(ancestorNode == nullptr)
 			return "unrelated";
-		return ancestorNode.relation;
+		return ancestorNode->relation;
     }
 
     Tree& Tree::remove( std::string name) {
@@ -133,10 +133,10 @@ using namespace family;
         return *this;
     }
 	
-    Node& recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
+    Node* recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
-    		return *rootNode;
-    	Node& ancestorNode = nullptr;
+    		return &rootNode;
+    	Node* ancestorNode = nullptr;
     	if(rootNode.father != nullptr){
     		ancestorNode = recursiveGetAncestorNode(*rootNode.father, ancestorName);
     		if(ancestorNode != nullptr)
@@ -151,9 +151,9 @@ using namespace family;
         return nullptr;
     }
 	
-	//help from: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 	void printInorder(Node* root) { 
-		if (root == nullptr) 
+		if (root == NULL) 
 			return;
 		printInorder(root->father);
 		std::cout << root->name << "-" << root->relation <<" "; 
