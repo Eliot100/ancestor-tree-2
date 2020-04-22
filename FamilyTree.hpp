@@ -5,19 +5,17 @@ using namespace std;
 
 namespace family {
 	
-    struct Node {
-       
+    class Node {
             int rank;
             std::string name;
             std::string relation;
             family::Node *mother, *father, *child;
 	    Node(const std::string nodeName);
     };
-	typedef struct Node Node;
 	
 	class Tree {
 		public:
-			family::Node root;
+			family::Node* root;
 			Tree (const std::string rootName);
 			Tree& addFather (const std::string sonName, const std::string fatherName);
 			Tree& addMother (const std::string sonName, const std::string motherName);
