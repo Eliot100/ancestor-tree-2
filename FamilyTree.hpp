@@ -25,7 +25,18 @@ namespace family {
 			std::string relation (const std::string ancestorName);
 			void display ();
 	};
-	
+	family::Node::Node(const std::string nodeName) {
+	this->rank = -1;
+	this->name = nodeName;
+	this->relation = "";
+    	this->father = NULL;
+	this->mother = NULL;
+    }
+    Tree::Tree(const std::string rootName) {
+	this->root = new Node(rootName);
+        root->relation = "me";
+        this->root->rank=0; 
+    }
 	
 }
 void printInorder(family::Node* root);	
