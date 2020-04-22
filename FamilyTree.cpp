@@ -1,6 +1,6 @@
 #include "FamilyTree.hpp"
 #include <exception>
-namespace family{
+using namespace family{
 	
     family::Node::Node(const std::string nodeName) {
 	this->rank = -1;
