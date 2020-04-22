@@ -4,7 +4,7 @@
 using namespace std;
 
 namespace family {
-	
+
     class Node {
 	public:
             int rank;
@@ -12,9 +12,9 @@ namespace family {
             std::string relation;
             family::Node *mother,*father,*child;
 	    Node(std::string nodeName)
-	    : rank(0),name("hi"), mother(nullptr), father(nullptr), child(nullptr)
+	    : rank(0), name(""), mother(nullptr), father(nullptr), child(nullptr)
 	    {
-//	    	name = nodeName;
+// 	    	name = nodeName;
 	    }
 
 	    ~ Node(){
@@ -22,7 +22,7 @@ namespace family {
             if(father) delete father;
 	    }
     };
-	
+
 	class Tree {
 		public:
 			family::Node* root;
@@ -39,7 +39,7 @@ namespace family {
 	};
 	
 }
-void printInorder(family::Node* root);	
+void printInorder(family::Node* root);
 void tokenize(std::string &str, const char delim, std::vector<std::string> &out);
 std::string findTemtom(int t, family::Node* temp, std::string out);
-family::Node& recursiveGetAncestorNode(family::Node &rootNode, std::string ancestorName);
+family::Node* recursiveGetAncestorNode(family::Node &rootNode, std::string ancestorName);
