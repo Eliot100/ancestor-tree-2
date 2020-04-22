@@ -4,7 +4,7 @@ using namespace family;
 
     Tree& Tree::addFather(std::string sonName,std::string fatherName) {
 	Node& sonNode = recursiveGetAncestorNode(*this->root , sonName);
-	if (&sonNode == nullptr || !(sonNode.name.compare(sonName))) { 	
+	if ( !(sonNode.name.compare(sonName))) { 	
 		throw runtime_error("la"); 
 	}
 	if ((sonNode.father!=(nullptr))) {
@@ -27,7 +27,7 @@ using namespace family;
             }
             father->relation = tmpName + father->relation;
         }
-        sonNode->father = father;
+        sonNode.father = father;
         return *this;
     }
 
