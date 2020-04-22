@@ -2,13 +2,13 @@
 #include <exception>
 using namespace family;
 	
-    family::Node::Node(const std::string nodeName) {
-	this->rank = -1;
-	this->name = nodeName;
-	this->relation = "";
-    	this->father = NULL;
-	this->mother = NULL;
-    }
+//     family::Node::Node(const std::string nodeName) {
+// 	this->rank = -1;
+// 	this->name = nodeName;
+// 	this->relation = "";
+//     	this->father = NULL;
+// 	this->mother = NULL;
+//     }
     Tree::Tree(const std::string rootName) : root(rootName) {
         this->root.relation = "me";
         this->root.rank=0; 
