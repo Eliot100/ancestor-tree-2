@@ -10,16 +10,16 @@ namespace family {
             int rank;
             std::string name;
             std::string relation;
-            family::Node *mother, *father, *child;
+            family::Node *mother,*father,*child;
 	    Node(std::string nodeName)
 	    : rank(0), name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
 	    {
-	    	relation;
+// 	    	name = nodeName;
 	    }
 
 	    ~ Node(){
-            	if(mother) delete mother;
-            	if(father) delete father;
+            if(mother) delete mother;
+            if(father) delete father;
 	    }
     };
 
@@ -42,4 +42,5 @@ namespace family {
 void printInorder(family::Node* root);
 void tokenize(std::string &str, const char delim, std::vector<std::string> &out);
 std::string findTemtom(int t, family::Node* temp, std::string out);
-family::Node* recursiveGetAncestorNode(family::Node &rootNode, std::string ancestorName);
+family::Node* recursiveGetAncestorNode(family::Node* rootNode, std::string ancestorName);
+ 
