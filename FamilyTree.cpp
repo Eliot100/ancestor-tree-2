@@ -133,9 +133,9 @@ using namespace family;
         return *this;
     }
 	
-    Node* recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
+    Node& recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
-    		return &rootNode;
+    		return *rootNode;
     	Node* ancestorNode = nullptr;
     	if(rootNode.father != nullptr){
     		ancestorNode = recursiveGetAncestorNode(*rootNode.father, ancestorName);

@@ -12,9 +12,9 @@ namespace family {
             std::string relation;
             family::Node *mother,*father,*child;
 	    Node(std::string nodeName)
-	    : rank(0), name(""), mother(nullptr), father(nullptr), child(nullptr)
+	    : rank(0),name("hi"), mother(nullptr), father(nullptr), child(nullptr)
 	    {
-// 	    	name = nodeName;
+//	    	name = nodeName;
 	    }
 
 	    ~ Node(){
