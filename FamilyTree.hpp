@@ -6,6 +6,7 @@ using namespace std;
 namespace family {
 	
     class Node {
+	public:
             int rank;
             std::string name;
             std::string relation;
