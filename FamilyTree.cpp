@@ -162,4 +162,4 @@ using namespace family;
 		std::cout << root->name << "-" << root->relation <<" "; 
 		printInorder(root->mother); 
 	}
-}
+
