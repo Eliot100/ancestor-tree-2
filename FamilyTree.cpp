@@ -4,9 +4,14 @@ using namespace family;
 
     Tree& Tree::addFather(std::string sonName,std::string fatherName) {
 	Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
+	if (!(sonNode->name.compare(sonName))) { throw runtime_error("la"); }
+	if ((sonNode->father!=(nullptr))) {
+        throw runtime_error("lala");
+    }
 	Node* father = new Node(fatherName);
         father->child = sonNode;
-        father->rank = sonNode->rank+1;
+        father->rank = (sonNode->rank)+1;
+        cout<<father->rank;
         father->name = fatherName;
         if(father->rank == 1)
             father->relation = "father";
@@ -20,12 +25,16 @@ using namespace family;
             }
             father->relation = tmpName + father->relation;
         }
-        sonNode->father = father;			
+        sonNode->father = father;
         return *this;
     }
 
     Tree& Tree::addMother(std::string sonName, std::string motherName) {
         Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
+        if (!(sonNode->name.compare(sonName))) { throw runtime_error("la"); }
+        if ((sonNode->mother!=(nullptr))) {
+            throw runtime_error("lala");
+        }
         Node* mother = new Node(motherName);
         mother->child = sonNode;
         mother->rank = sonNode->rank+1;
@@ -62,18 +71,16 @@ using namespace family;
     std::string findTemtom(int t, Node* temp, std::string out) {
         if (t > 1) {
             if (temp->mother != NULL)
-             return findTemtom(t - 1, temp->mother , out);
+                return findTemtom(t - 1, temp->mother, out);
             if (temp->father != NULL)
-              return findTemtom(t - 1, temp->father , out);
+                return findTemtom(t - 1, temp->father, out);
+        } else {
+            if (out.compare("grandmother") && (temp->mother != NULL)) {
+                return temp->mother->name;
+            } else if (out.compare("grandfather") && (temp->father != NULL)) {
+                return temp->father->name;
+            }
         }
-        else{
-        	if (out.compare("grandmother") && (temp->mother != NULL)) {
-			return temp->mother->name;
-        	} else if (out.compare("grandfather") && (temp->father != NULL)) {
-			return temp->father->name;
-        	}
-	}
-   
     }
     std::string Tree::find( std::string relation2Root) {
         int L = relation2Root.length();
@@ -103,7 +110,7 @@ using namespace family;
 
     std::string Tree::relation( std::string ancestorName) {
 		Node* ancestorNode = recursiveGetAncestorNode(*this->root, ancestorName);
-        if(ancestorNode == NULL)
+        if(ancestorNode == nullptr)
 			return "unrelated";
 		return ancestorNode->relation;
     }
@@ -127,18 +134,19 @@ using namespace family;
     Node* recursiveGetAncestorNode(Node& rootNode, std::string ancestorName){
     	if(rootNode.name.compare(ancestorName))
     		return &rootNode;
-    	Node* ancestorNode = NULL;
-    	if(rootNode.father != NULL){
+    	Node* ancestorNode = nullptr;
+    	if(rootNode.father != nullptr){
     		ancestorNode = recursiveGetAncestorNode(*rootNode.father, ancestorName);
-    		if(ancestorNode != NULL)
+    		if(ancestorNode != nullptr)
     			return ancestorNode;
     	}
-    	if(rootNode.mother != NULL){
+    	if(rootNode.mother != nullptr){
     		ancestorNode = recursiveGetAncestorNode(*rootNode.mother, ancestorName);
-    		if(ancestorNode != NULL)
+    		if(ancestorNode != nullptr)
     			return ancestorNode;
     	}
-		throw std::runtime_error("error"); 
+//		throw std::runtime_error("error");
+        return nullptr;
     }
 	
 	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
