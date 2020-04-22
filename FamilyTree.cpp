@@ -103,13 +103,13 @@ using namespace family;
 	    return temtom;
         } else {
             if (relation2Root.compare("mother"))
-                return this->root.mother->name;
+                return this->root->mother->name;
             else if (relation2Root.compare("father"))
-                return this->root.father->name;
+                return this->root->father->name;
             else if (relation2Root.compare("grandmother"))
-                return this->root.mother->mother->name;
+                return this->root->mother->mother->name;
             else if (relation2Root.compare("grandfather"))
-                return this->root.father->father->name;
+                return this->root->father->father->name;
             else throw (std::runtime_error("error"));
         }
     }
