@@ -60,7 +60,7 @@ using namespace family;
     }
 
     void Tree::display() {
-	    printInorder(&this->root);
+	    printInorder(this->root);
     }
 
     void tokenize(std::string const &str, const char delim, std::vector<std::string> &out){
@@ -91,7 +91,7 @@ using namespace family;
     std::string Tree::find(const std::string relation2Root) {
         int L = relation2Root.length();
 	int i = 0;
-        Node temp = this->root;
+        Node temp = *this->root;
         if (L > 11) {
             const char delim = '-';
             std::vector <std::string> out;
