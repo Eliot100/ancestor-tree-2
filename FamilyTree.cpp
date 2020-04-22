@@ -2,18 +2,7 @@
 #include <exception>
 using namespace family;
 	
-    family::Node::Node(const std::string nodeName) {
-	this->rank = -1;
-	this->name = nodeName;
-	this->relation = "";
-    	this->father = NULL;
-	this->mother = NULL;
-    }
-    Tree::Tree(const std::string rootName) {
-	this->root = new Node(rootName);
-        root->relation = "me";
-        this->root->rank=0; 
-    }
+    
 
     Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
 	Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
