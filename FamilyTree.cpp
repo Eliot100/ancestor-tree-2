@@ -9,8 +9,7 @@ using namespace family;
     	this->father = NULL;
 	this->mother = NULL;
     }
-
-  Tree(const std::string rootName) : root(rootName) {
+    Tree::Tree(const std::string rootName) : root(rootName) {
         this->root.relation = "me";
         this->root.rank=0; 
     }
