@@ -3,8 +3,8 @@
 using namespace family;
 
     Tree& Tree::addFather(std::string sonName,std::string fatherName) {
-	Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
-	if (!(sonNode->name.compare(sonName))) { 	
+	Node& sonNode = recursiveGetAncestorNode(*this->root , sonName);
+	if (sonNode == nullptr || !(sonNode->name.compare(sonName))) { 	
 		throw runtime_error("la"); 
 	}
 	if ((sonNode->father!=(nullptr))) {
