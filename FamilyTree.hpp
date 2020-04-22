@@ -10,16 +10,16 @@ namespace family {
             int rank;
             std::string name;
             std::string relation;
-            family::Node *mother,*father,*child;
+            family::Node *mother, *father, *child;
 	    Node(std::string nodeName)
-	    : rank(0), name(""), mother(nullptr), father(nullptr), child(nullptr)
+	    : rank(0), name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
 	    {
-// 	    	name = nodeName;
+	    	relation;
 	    }
 
 	    ~ Node(){
-            if(mother) delete mother;
-            if(father) delete father;
+            	if(mother) delete mother;
+            	if(father) delete father;
 	    }
     };
 
