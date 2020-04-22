@@ -1,8 +1,6 @@
 #include "FamilyTree.hpp"
 #include <exception>
 using namespace family;
-	
-    
 
     Tree& Tree::addFather(const std::string sonName, const std::string fatherName) {
 	Node* sonNode = recursiveGetAncestorNode(*this->root , sonName);
