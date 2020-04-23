@@ -94,7 +94,6 @@ TEST_CASE("Yosef Tree case") {
 	T.remove("Isaac");
 	T.remove("Rivka");
 	T.remove("Ruti");
-	T.display();
 	CHECK_THROWS(T.find("grandmother"));
 	CHECK_THROWS(T.addFather("Isaac", "Avraham"));
 	CHECK_THROWS(T.addMother("Isaac", "Ruti"));
@@ -103,6 +102,7 @@ TEST_CASE("Yosef Tree case") {
 	T.display();
 	T.remove("Yaakov");  // remove father
 	T.remove("Rachel");  // remove mother
+	T.display();
 	CHECK_THROWS(T.find("father"));
 	CHECK_THROWS(T.find("mother"));
 	CHECK_THROWS(T.addFather("Yaakov", "Avraham"));   // add to non-existent person
