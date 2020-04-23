@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 using namespace std;
 
 namespace family {
@@ -12,7 +11,7 @@ namespace family {
             std::string relation;
             family::Node *mother, *father, *child;
 	    Node(std::string nodeName)
-	    : rank(0), name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
+	    : name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
 	    {}
 
 	    ~ Node(){
@@ -29,6 +28,7 @@ namespace family {
 			Tree (std::string rootName)
 			: root(new Node(rootName)) {
                 		root->relation = "me";
+                		root->rank = 0;
             		}
 			
 			~ Tree(){
