@@ -76,8 +76,10 @@ using namespace family;
         Node* removeNode = recursiveGetAncestorNode(this->root , name);
         if (removeNode->rank == 0)
             throw(std::runtime_error("error"));
-        remove(removeNode->father->name);
-        remove(removeNode->mother->name);
+	if(removeNode->father != nullptr)  
+        	remove(removeNode->father->name);
+	if(removeNode->mother != nullptr) 
+        	remove(removeNode->mother->name);
         if(removeNode->child->father->name == name){
             removeNode->child->father = nullptr;
         }
