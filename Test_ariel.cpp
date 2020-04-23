@@ -107,6 +107,7 @@ TEST_CASE("Yosef Tree case") {
 	CHECK_THROWS(T.addMother("Yaakov", "Ruti"));      // add to non-existent person
 	CHECK_THROWS(T.addFather("Rachel", "Avraham"));   // add to non-existent person
 	CHECK_THROWS(T.addMother("Rachel", "Ruti"));      // add to non-existent person
+	T.display();
 }
 
 /*
