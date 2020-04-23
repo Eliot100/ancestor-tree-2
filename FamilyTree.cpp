@@ -88,7 +88,7 @@ using namespace family;
     }
     std::string Tree::find( std::string relation2Root) {
 	   Node* ancestorNode = nullptr;
-    	   ancestorNode = recursiveGetAncestorNodeByRelation(this->root, ancestorRelation);
+    	   ancestorNode = recursiveGetAncestorNodeByRelation(this->root, relation2Root);
 	   if(ancestorNode == nullptr)
 		   throw std::runtime_error("error");
 	   return *ancestorNode->name;
