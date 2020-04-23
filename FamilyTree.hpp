@@ -30,6 +30,11 @@ namespace family {
 			: root(new Node(rootName)) {
                 		root->relation = "me";
             		}
+			
+			~ Tree(){
+				delete root;
+			}
+			
 			Tree& addFather (std::string sonName, std::string fatherName);
 			Tree& addMother (std::string sonName, std::string motherName);
 			Tree& remove (std::string name) ;
