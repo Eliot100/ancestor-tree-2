@@ -5,17 +5,17 @@
 #include <string>
 using namespace std;
 
-TEST_CASE("Reference add Tree case") { 
-	cout<<"befor"<<endl;
-	family::Tree T ("Yosef");
-	cout<<"after"<<endl;
-	T.addFather("Yosef", "Yaakov")
-	 .addMother("Yosef", "Rachel")
-	 .addFather("Yaakov", "Isaac")
-	 .addMother("Yaakov", "Rivka")
-	 .addFather("Isaac", "Avraham")
-	 .addFather("Avraham", "Terah");
-}
+// TEST_CASE("Reference add Tree case") { 
+// 	cout<<"befor"<<endl;
+// 	family::Tree T ("Yosef");
+// 	cout<<"after"<<endl;
+// 	T.addFather("Yosef", "Yaakov")
+// 	 .addMother("Yosef", "Rachel")
+// 	 .addFather("Yaakov", "Isaac")
+// 	 .addMother("Yaakov", "Rivka")
+// 	 .addFather("Isaac", "Avraham")
+// 	 .addFather("Avraham", "Terah");
+// }
 
 TEST_CASE("Yosef Tree case") {  
 	// Add test case
