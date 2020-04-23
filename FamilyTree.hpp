@@ -13,13 +13,13 @@ namespace family {
             family::Node *mother,*father,*child;
 	    Node(std::string nodeName)
 	    : rank(0), name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
-	    {
-// 	    	name = nodeName;
-	    }
+	    {}
 
 	    ~ Node(){
-            if(mother) delete mother;
-            if(father) delete father;
+            	if(mother != nullptr)
+			delete mother;
+            	if(father != nullptr)
+			delete father;
 	    }
     };
 
