@@ -12,10 +12,8 @@ namespace family {
             std::string relation;
             family::Node *mother, *father, *child;
 	    Node(std::string nodeName)
-	    : rank(0), name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
-	    {
-		    relation ="";
-	    }
+	    : rank(0), name(nodeName), relation(""), mother(nullptr), father(nullptr), child(nullptr)
+	    {}
 
 	    ~ Node(){
             	if(mother != nullptr)
