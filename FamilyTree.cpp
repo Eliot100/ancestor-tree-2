@@ -82,7 +82,7 @@ using namespace family;
             	removeNode->child->mother = nullptr;
 	else 
 		throw(std::runtime_error("error"));
-        delete removeNode;
+        delete[] removeNode;
         return *this;
     }
 	
