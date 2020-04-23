@@ -93,12 +93,13 @@ using namespace family;
         if (L > 11) {
             const char delim = '-';
             std::vector <std::string> out;
-            tokenize(relation2Root, delim, out);
-            int r = out.size();
-            std::string temtom = findTemtom(r, &temp, out[r - 1]);
-            if (temtom == "NULL")
-                throw (std::runtime_error("error"));
-            return temtom;
+	    return 
+            //tokenize(relation2Root, delim, out);
+            //int r = out.size();
+            //std::string temtom = findTemtom(r, &temp, out[r - 1]);
+            //if (temtom == "NULL")
+            //    throw (std::runtime_error("error"));
+            //return temtom;
         } else {
             if (relation2Root == "mother")
                 return this->root->mother->name;
@@ -125,7 +126,7 @@ using namespace family;
             throw(std::runtime_error("error"));
         remove(removeNode->father->name);
         remove(removeNode->mother->name);
-        if(removeNode->child->father->name.compare(name)){
+        if(removeNode->child->father->name == name){
             removeNode->child->father = NULL;
         }
         else{
@@ -149,7 +150,23 @@ using namespace family;
     		if(ancestorNode != nullptr)
     			return ancestorNode;
     	}
-//		throw std::runtime_error("error");
+        return nullptr;
+    }
+
+    Node* recursiveGetAncestorNodeByRelation(Node* rootNode, std::string ancestorRelation){
+    	if(rootNode->relation==ancestorRelation)
+    		return rootNode;
+    	Node* ancestorNode = nullptr;
+    	if(rootNode->father != nullptr){
+    		ancestorNode = recursiveGetAncestorNodeByRelation(rootNode->father, ancestorRelation);
+    		if(ancestorNode != nullptr)
+    			return ancestorNode;
+    	}
+    	if(rootNode->mother != nullptr){
+    		ancestorNode = recursiveGetAncestorNodeByRelation(rootNode->mother, ancestorRelation);
+    		if(ancestorNode != nullptr)
+    			return ancestorNode;
+    	}
         return nullptr;
     }
 
