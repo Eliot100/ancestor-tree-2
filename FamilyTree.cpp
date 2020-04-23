@@ -78,8 +78,10 @@ using namespace family;
         	remove(removeNode->mother->name);
         if(removeNode->child->father->name == name)
             	removeNode->child->father = nullptr;
-        else
-            removeNode->child->mother = nullptr;
+        else if (removeNode->child->mother->name == name)
+            	removeNode->child->mother = nullptr;
+	else 
+		throw(std::runtime_error("error"));
         delete removeNode;
         return *this;
     }
