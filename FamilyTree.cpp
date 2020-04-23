@@ -73,11 +73,11 @@ using namespace family;
         if (removeNode == nullptr || removeNode->rank == 0)
             	throw(std::runtime_error("error"));
 	if(removeNode->father != nullptr)  {
-        	remove(removeNode->father);
+        	remove2(removeNode->father);
 	     	removeNode->father = nullptr;
 	}
 	if(removeNode->mother != nullptr) {
-        	remove(removeNode->mother);
+        	remove2(removeNode->mother);
 	     	removeNode->mother = nullptr;
 	}
         if(removeNode->child->father->name == name)
@@ -90,11 +90,11 @@ using namespace family;
         return *this;
     }
 
-    void remove(family::Node *parent) {
+    void remove2(family::Node *parent) {
 	if(parent->father != nullptr)
-        	remove(parent->father);
+        	remove2(parent->father);
     	if(rootNode->mother != nullptr)
-        	remove(parent->mother);
+        	remove2(parent->mother);
 	delete *parent;
     }
 	
