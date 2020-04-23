@@ -91,7 +91,7 @@ using namespace family;
     	   ancestorNode = recursiveGetAncestorNodeByRelation(this->root, ancestorRelation);
 	   if(ancestorNode == nullptr)
 		   throw std::runtime_error("error");
-	   return *ancestorNode.name;
+	   return *ancestorNode->name;
 		   
 //         int L = relation2Root.size();
 //         int i = 0;
