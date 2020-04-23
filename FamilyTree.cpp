@@ -72,10 +72,14 @@ using namespace family;
         Node* removeNode = recursiveGetAncestorNode(this->root , name);
         if (removeNode == nullptr || removeNode->rank == 0)
             	throw(std::runtime_error("error"));
-	if(removeNode->father != nullptr)  
-        	this->remove(removeNode->father->name);
-	if(removeNode->mother != nullptr) 
-        	this->remove(removeNode->mother->name);
+	if(removeNode->father != nullptr)  {
+        	this->remove(removeNode->father);
+	     	removeNode->father = nullptr;
+	}
+	if(removeNode->mother != nullptr) {
+        	this->remove(removeNode->mother);
+	     	removeNode->mother = nullptr;
+	}
         if(removeNode->child->father->name == name)
             	removeNode->child->father = nullptr;
         else if (removeNode->child->mother->name == name)
@@ -84,6 +88,14 @@ using namespace family;
 		throw(std::runtime_error("error"));
         delete removeNode;
         return *this;
+    }
+
+    void remove(family::Node *parent) {
+	if(parent->father != nullptr)
+        	remove(parent->father);
+    	if(rootNode->mother != nullptr)
+        	remove(parent->mother);
+	delete *parent;
     }
 	
     Node* recursiveGetAncestorNode(Node* rootNode, std::string ancestorName){
