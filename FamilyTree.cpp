@@ -4,16 +4,12 @@ using namespace family;
 
     Tree& Tree::addFather(std::string sonName,std::string fatherName) {
 	Node* sonNode = recursiveGetAncestorNode(this->root , sonName);
-	if ((sonNode->name!=sonName)) {
-		throw runtime_error(sonNode->name);
+	if (sonNode == nullptr || sonNode->name != sonName || sonNode->father != nullptr) {
+		throw runtime_error("error");
 	}
-	if ((sonNode->father!=(nullptr))) {
-        	throw runtime_error("lala");
-    	}
-
 	Node* father = new Node(fatherName);
         father->child = sonNode;
-        father->rank = (sonNode->rank)+1;
+        father->rank = sonNode->rank+1;
         father->name = fatherName;
         if(father->rank == 1)
             father->relation = "father";
