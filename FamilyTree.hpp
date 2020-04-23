@@ -17,9 +17,9 @@ namespace family {
 
 	    ~ Node(){
             	if(mother != nullptr)
-			delete[] mother;
+			delete mother;
             	if(father != nullptr)
-			delete[] father;
+			delete father;
 	    }
     };
 
