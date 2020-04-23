@@ -93,7 +93,7 @@ using namespace family;
     void remove2(family::Node *parent) {
 	if(parent->father != nullptr)
         	remove2(parent->father);
-    	if(rootNode->mother != nullptr)
+    	if(parent->mother != nullptr)
         	remove2(parent->mother);
 	delete *parent;
     }
