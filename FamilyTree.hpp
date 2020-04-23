@@ -11,7 +11,7 @@ namespace family {
             std::string relation;
             family::Node *mother, *father, *child;
 	    Node(std::string nodeName)
-	    : name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
+	    : rank(0), name(nodeName), mother(nullptr), father(nullptr), child(nullptr)
 	    {}
 
 	    ~ Node(){
@@ -28,7 +28,6 @@ namespace family {
 			Tree (std::string rootName)
 			: root(new Node(rootName)) {
                 		root->relation = "me";
-                		root->rank = 0;
             		}
 			
 			~ Tree(){
@@ -37,9 +36,9 @@ namespace family {
 			
 			Tree& addFather (std::string sonName, std::string fatherName);
 			Tree& addMother (std::string sonName, std::string motherName);
-			Tree& remove (std::string name) ;
-			std::string find (std::string relation2Root);
+			Tree& remove (std::string name);
 			std::string relation (std::string ancestorName);
+			std::string find (std::string relation2Root);
 			void display ();
 	};
 }
