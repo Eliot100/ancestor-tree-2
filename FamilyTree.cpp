@@ -57,11 +57,6 @@ using namespace family;
         return *this;
     }
 
-    void Tree::display() {
-	    printInorder(this->root);
-        cout<<endl;
-    }
-
     std::string Tree::find( std::string relation2Root) {
 	   Node* ancestorNode = nullptr;
     	   ancestorNode = recursiveGetAncestorNodeByRelation(this->root, relation2Root);
@@ -71,10 +66,10 @@ using namespace family;
     }
 
     std::string Tree::relation( std::string ancestorName) {
-		Node* ancestorNode = recursiveGetAncestorNode(this->root, ancestorName);
+	Node* ancestorNode = recursiveGetAncestorNode(this->root, ancestorName);
         if(ancestorNode == nullptr)
-			return "unrelated";
-		return ancestorNode->relation;
+		return "unrelated";
+	return ancestorNode->relation;
     }
 
     Tree& Tree::remove( std::string name) {
@@ -125,6 +120,12 @@ using namespace family;
     			return ancestorNode;
     	}
         return nullptr;
+    }
+
+
+    void Tree::display() {
+	    printInorder(this->root);
+        cout<<endl;
     }
 
 	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
