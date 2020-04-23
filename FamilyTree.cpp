@@ -74,18 +74,16 @@ using namespace family;
 
     Tree& Tree::remove( std::string name) {
         Node* removeNode = recursiveGetAncestorNode(this->root , name);
-        if (removeNode->rank == 0)
-            throw(std::runtime_error("error"));
+        if (removeNode == nullptr || removeNode->rank == 0)
+            	throw(std::runtime_error("error"));
 	if(removeNode->father != nullptr)  
         	remove(removeNode->father->name);
 	if(removeNode->mother != nullptr) 
         	remove(removeNode->mother->name);
-        if(removeNode->child->father->name == name){
-            removeNode->child->father = nullptr;
-        }
-        else{
+        if(removeNode->child->father->name == name)
+            	removeNode->child->father = nullptr;
+        else
             removeNode->child->mother = nullptr;
-        }
         delete removeNode;
         return *this;
     }
