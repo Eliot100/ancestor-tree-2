@@ -62,30 +62,30 @@ using namespace family;
         cout<<endl;
     }
 
-    void tokenize(std::string &str, const char delim, std::vector<std::string> &out){
-        size_t start;
-        size_t end = 0;
-        while ((start = str.find_first_not_of(delim, end)) != std::string::npos){
-            end = str.find(delim, start);
-            out.push_back(str.substr(start, end - start));
-        }
-    }
+//     void tokenize(std::string &str, const char delim, std::vector<std::string> &out){
+//         size_t start;
+//         size_t end = 0;
+//         while ((start = str.find_first_not_of(delim, end)) != std::string::npos){
+//             end = str.find(delim, start);
+//             out.push_back(str.substr(start, end - start));
+//         }
+//     }
 
-    std::string findTemtom(int t, Node* temp, std::string out) {
-        if (t > 0) {
-            if (temp->mother != nullptr)
-                return findTemtom(t - 1, temp->mother, out);
-            if (temp->father != nullptr)
-                return findTemtom(t - 1, temp->father, out);
-        } else {
-            if (out =="grandmother" && (temp->mother != nullptr)) {
-                return temp->mother->name;
-            } else if (out=="grandfather" && (temp->father != nullptr)) {
-                return temp->father->name;
-            }
-        }
-        return "NULL";
-    }
+//     std::string findTemtom(int t, Node* temp, std::string out) {
+//         if (t > 0) {
+//             if (temp->mother != nullptr)
+//                 return findTemtom(t - 1, temp->mother, out);
+//             if (temp->father != nullptr)
+//                 return findTemtom(t - 1, temp->father, out);
+//         } else {
+//             if (out =="grandmother" && (temp->mother != nullptr)) {
+//                 return temp->mother->name;
+//             } else if (out=="grandfather" && (temp->father != nullptr)) {
+//                 return temp->father->name;
+//             }
+//         }
+//         return "NULL";
+//     }
     std::string Tree::find( std::string relation2Root) {
 	   Node* ancestorNode = nullptr;
     	   ancestorNode = recursiveGetAncestorNodeByRelation(this->root, relation2Root);
@@ -179,10 +179,10 @@ using namespace family;
 
 	// https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
 	void printInorder(Node* root) { 
-		if (root == NULL) 
+		if (root == nullptr) 
 			return;
 		printInorder(root->father);
-		std::cout << root->name << "-" << root->relation <<" "; 
+		std::cout << root->name << "-" << root->relation <<"  "; 
 		printInorder(root->mother); 
 	}
 
