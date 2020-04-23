@@ -73,11 +73,11 @@ using namespace family;
         if (removeNode == nullptr || removeNode->rank == 0)
             	throw(std::runtime_error("error"));
 	if(removeNode->father != nullptr)  {
-        	this->remove(removeNode->father);
+        	remove(removeNode->father);
 	     	removeNode->father = nullptr;
 	}
 	if(removeNode->mother != nullptr) {
-        	this->remove(removeNode->mother);
+        	remove(removeNode->mother);
 	     	removeNode->mother = nullptr;
 	}
         if(removeNode->child->father->name == name)
