@@ -62,62 +62,12 @@ using namespace family;
         cout<<endl;
     }
 
-//     void tokenize(std::string &str, const char delim, std::vector<std::string> &out){
-//         size_t start;
-//         size_t end = 0;
-//         while ((start = str.find_first_not_of(delim, end)) != std::string::npos){
-//             end = str.find(delim, start);
-//             out.push_back(str.substr(start, end - start));
-//         }
-//     }
-
-//     std::string findTemtom(int t, Node* temp, std::string out) {
-//         if (t > 0) {
-//             if (temp->mother != nullptr)
-//                 return findTemtom(t - 1, temp->mother, out);
-//             if (temp->father != nullptr)
-//                 return findTemtom(t - 1, temp->father, out);
-//         } else {
-//             if (out =="grandmother" && (temp->mother != nullptr)) {
-//                 return temp->mother->name;
-//             } else if (out=="grandfather" && (temp->father != nullptr)) {
-//                 return temp->father->name;
-//             }
-//         }
-//         return "NULL";
-//     }
     std::string Tree::find( std::string relation2Root) {
 	   Node* ancestorNode = nullptr;
     	   ancestorNode = recursiveGetAncestorNodeByRelation(this->root, relation2Root);
 	   if(ancestorNode == nullptr)
 		   throw std::runtime_error("error");
 	   return ancestorNode->name;
-		   
-//         int L = relation2Root.size();
-//         int i = 0;
-//         Node temp = *this->root;
-//         if (L > 11) {
-	
-//             const char delim = '-';
-//             std::vector <std::string> out;
-// 	    return 
-//             //tokenize(relation2Root, delim, out);
-//             //int r = out.size();
-//             //std::string temtom = findTemtom(r, &temp, out[r - 1]);
-//             //if (temtom == "NULL")
-//             //    throw (std::runtime_error("error"));
-//             //return temtom;
-//         } else {
-//             if (relation2Root == "mother")
-//                 return this->root->mother->name;
-//             else if (relation2Root == "father")
-//                 return this->root->father->name;
-//             else if (relation2Root == "grandmother")
-//                 return this->root->mother->mother->name;
-//             else if (relation2Root == "grandfather")
-//                 return this->root->father->father->name;
-//             else throw (std::runtime_error("error"));
-//         }
     }
 
     std::string Tree::relation( std::string ancestorName) {
@@ -134,10 +84,10 @@ using namespace family;
         remove(removeNode->father->name);
         remove(removeNode->mother->name);
         if(removeNode->child->father->name == name){
-            removeNode->child->father = NULL;
+            removeNode->child->father = nullptr;
         }
         else{
-            removeNode->child->mother = NULL;
+            removeNode->child->mother = nullptr;
         }
         delete removeNode;
         return *this;
