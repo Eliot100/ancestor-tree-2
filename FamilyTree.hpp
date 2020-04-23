@@ -46,5 +46,5 @@ namespace family {
 family::Node* recursiveGetAncestorNode(family::Node* rootNode, std::string ancestorName);
 family::Node* recursiveGetAncestorNodeByRelation(family::Node* rootNode, std::string ancestorRelation);
 void printInorder(family::Node* root);
-void remove (family::Node* parent);
+void remove2 (family::Node* parent);
  
