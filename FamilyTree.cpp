@@ -95,7 +95,7 @@ using namespace family;
         	remove2(parent->father);
     	if(parent->mother != nullptr)
         	remove2(parent->mother);
-	delete *parent;
+	delete parent;
     }
 	
     Node* recursiveGetAncestorNode(Node* rootNode, std::string ancestorName){
