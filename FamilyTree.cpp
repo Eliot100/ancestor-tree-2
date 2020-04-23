@@ -73,9 +73,9 @@ using namespace family;
         if (removeNode == nullptr || removeNode->rank == 0)
             	throw(std::runtime_error("error"));
 	if(removeNode->father != nullptr)  
-        	this.remove(removeNode->father->name);
+        	this->remove(removeNode->father->name);
 	if(removeNode->mother != nullptr) 
-        	this.remove(removeNode->mother->name);
+        	this->remove(removeNode->mother->name);
         if(removeNode->child->father->name == name)
             	removeNode->child->father = nullptr;
         else if (removeNode->child->mother->name == name)
